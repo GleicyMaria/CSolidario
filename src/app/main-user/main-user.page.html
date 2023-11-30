@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Bem-vindo!</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Avisos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="horizontal-scroll">
+      <div *ngFor="let item of cardItems" class="card-item">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ item.subtitle }}</ion-card-subtitle>
+            <ion-card-title>{{ item.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-content">
+            {{ item.content }}
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="ongsQueParticipo && ongsQueParticipo.length > 0">
+    <ion-card-header>
+      <ion-button (click)="irParaListaOngs()"
+        >Conferir lista de Ongs</ion-button
+      >
+
+      <ion-card-title>Ongs que faço parte</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card
+        *ngFor="let ong of ongsQueParticipo"
+        (click)="irParaPerfilOng(ong.id)"
+      >
+        <ion-card-header>
+          <ion-card-title>{{ ong.nome }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Missão: {{ ong.missao }}</p>
+          <p>Categoria: {{ ong.nomeCategoria }}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!ongsQueParticipo || ongsQueParticipo.length === 0">
+    <ion-card-header>
+      <ion-card-title>Ajude uma Ong</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-fab vertical="bottom" horizontal="end">
+        <ion-fab-button (click)="irParaListaOngs()">
+          <ion-icon name="heart-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

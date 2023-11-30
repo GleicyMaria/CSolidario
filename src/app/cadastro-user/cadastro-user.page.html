@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pagina-anterior"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h3 class="ion-text-center">Bem Vindo</h3>
+  <p class="ion-text-center">
+    Estamos felizes por você tambem quer fazer 
+    parte da nossa rede
+  </p>
+
+  <ion-item>
+    <ion-input
+      [(ngModel)]="usuario.Nome"
+      label="Nome "
+      label-placement="stacked"
+      placeholder="Digite o Seu nome"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      [(ngModel)]="usuario.Senha"
+      label="Senha"
+      type="password"
+      label-placement="stacked"
+    >
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      [(ngModel)]="usuario.Email"
+      label="Email"
+      type="email"
+      placeholder="email@domain.com"
+      label-placement="stacked"
+    >
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tipo de Papel</ion-label>
+    <ion-select [(ngModel)]="usuario.Papel" placeholder="Selecione Papel">
+      <ion-select-option *ngFor="let papel of papeis" [value]="papel.id">
+        {{papel.Nome}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button class="button" expand="full" (click)="adicionarUser()"
+    >Cadastrar</ion-button
+  >
+
+  <div class="trapezoid"></div>
+</ion-content>

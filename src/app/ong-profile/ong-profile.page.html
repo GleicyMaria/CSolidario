@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pagina-anterior"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="!loading; else loaderContent">
+    <ion-card *ngIf="ongDetails">
+      <ion-card-header>
+        <ion-card-title>{{ ongDetails.nome }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="ion-text-center">Missão: {{ ongDetails.missao }}</p>
+
+        <ion-grid>
+          <ion-row class="ion-align-items-center">
+            <ion-col size="auto">
+              <p class="minha-avaliacao">Minha Avaliação:</p>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-row justify-content-center class="coracao-row">
+                <ion-col
+                  size="auto"
+                  class="coracao-col"
+                  *ngFor="let coracao of coracoes; let i = index"
+                >
+                  <ion-icon
+                    [name]="coracao.icon"
+                    [class]="coracao.classe"
+                    (click)="clicarNoCoracao(i)"
+                  ></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="auto">
+            <p class="nota-ong">Nota geral da ONG: {{ notaOng }}</p>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+   <div class="horizontal-scroll" >
+    <div *ngFor="let card of menuItems" class="menu-item" (click)="navegarParaPagina(card.page)">
+      <ion-card>
+        <ion-card-content>
+          <ion-icon name="{{ card.icon }}"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Comentarios</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card *ngFor="let comentario of comentarios">
+        <ion-card-content>
+          <p>{{ comentario.userName }} disse:</p>
+          <p>{{ comentario.comment }}</p>
+          <p style="font-size: 8px">
+            Data: {{ formatarData(comentario.timestamp) }}
+          </p>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-content>
+          <ion-textarea
+            [(ngModel)]="novoComentario"
+            placeholder="Adicione um comentário"
+          ></ion-textarea>
+          <ion-button expand="full" (click)="adicionarComentario()"
+            >Comentar</ion-button
+          >
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+
+  <ng-template #loaderContent>
+    <ion-spinner color="primary"></ion-spinner>
+  </ng-template>
+</ion-content>

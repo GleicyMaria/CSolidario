@@ -1,0 +1,13 @@
+.trapezoid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #ffbd59;
+  clip-path: polygon(26% 0%, 78% 0%, 101% 100%, 0% 100%);
+}
+ion-button {
+  --background: #ffbd59;
+  --background-activated: #ffcd82;
+  --background-hover: #c6964d;
+}

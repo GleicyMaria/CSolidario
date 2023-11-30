@@ -1,0 +1,47 @@
+.logo-container {
+  text-align: center;
+  margin-top: 20px; /* Espaçamento acima do logo */
+}
+
+.logo {
+  width: 120px; /* Ajuste o tamanho do logo conforme necessário */
+}
+
+.app-name {
+  font-size: 32px;
+  margin-top: 10px;
+}
+
+.container {
+  margin: 20px;
+}
+h2 {
+  color: #ffbd59; 
+  text-align: center; 
+  font-weight: bold; 
+}
+
+.register-link a {
+  color: #ffbd59; /* Cor azul para o link */
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.trapezoid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px; 
+  background-color: #ffbd59;
+  clip-path: polygon(26% 0%,78% 0%,101% 100%,0% 100%);
+}
+ion-button{
+  --background: #FFBD59;
+  --background-activated: #FFCD82;
+  --background-hover: #C6964D;
+}
+
+ion-input {
+  --highlight-color-focused: #FFBD59;
+
+}

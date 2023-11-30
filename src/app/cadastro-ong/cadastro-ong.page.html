@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pagina-anterior"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h3 class="ion-text-center">Bem Vindo ao cadastro de Ong</h3>
+  <p class="ion-text-center">
+    A sua ong estará sujeita a uma aprovação para fazer parte da plataforma
+  </p>
+  <ion-item>
+    <ion-input
+      [(ngModel)]="novaOng.nome"
+      label="Nome da Ong"
+      label-placement="stacked"
+      placeholder="Enter text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      [(ngModel)]="novaOng.missao"
+      label="Missão"
+      label-placement="stacked"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      label="Data de Criação"
+      type="date"
+      label-placement="stacked"
+      [(ngModel)]="novaOng.dataCriacao"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      [(ngModel)]="novaOng.email"
+      label="Email"
+      label-placement="stacked"
+      
+    >
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      [(ngModel)]="novaOng.telefone"
+      label-placement="stacked"
+      label="Telefone para contato"
+    >
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Categoria da ONG</ion-label>
+    <ion-select
+      [(ngModel)]="novaOng.categoriaId"
+      placeholder="Selecione a categoria"
+    >
+      <ion-select-option
+        *ngFor="let categoria of categorias"
+        [value]="categoria.id"
+      >
+        {{categoria.Nome}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button class="button" expand="full" (click)="adicionarOng()"
+    >Cadastrar</ion-button
+  >
+
+  <div class="trapezoid"></div>
+</ion-content>

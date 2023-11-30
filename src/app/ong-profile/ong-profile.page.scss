@@ -1,0 +1,54 @@
+ion-icon {
+  font-size: 20px;
+}
+.coracao-cinza {
+  color: gray;
+}
+
+.coracao-vermelho {
+  color: #ffbd59;
+}
+
+.coracao-col {
+  width: 45x;
+  margin-right: -10px;
+}
+.minha-avaliacao {
+  margin-bottom: 0;
+}
+
+.coracao-row {
+  flex-wrap: nowrap;
+}
+
+.horizontal-scroll {
+  white-space: nowrap;
+  overflow-x: auto;
+  display: flex;
+  -webkit-overflow-scrolling: touch; 
+  scrollbar-width: thin; 
+}
+
+.menu-item {
+  padding: 10px; 
+  cursor: pointer;
+  margin-right: -5%; 
+}
+.menu-item ion-icon {
+  font-size: 24px; 
+  color: #ffbd59;
+}
+.menu-item ion-card {
+  border-radius: 50px; 
+} 
+.menu-container {
+  position: relative;
+  overflow: hidden;
+}
+
+ion-button{
+  --background: #FFBD59;
+  --background-activated: #FFCD82;
+  --background-hover: #C6964D;
+}
+

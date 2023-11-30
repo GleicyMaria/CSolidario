@@ -1,20 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding" color="#ffffff">
+  <div class="content-container">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="Logo do Aplicativo" class="logo" />
+      <div class="app-name">Círculo Solidário</div>
+    </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <h3 class="ion-text-center">
+      Uma rede de solidariedade que conecta pessoas e organizações que querem
+      fazer a diferença
+    </h3>
+    <p class="ion-text-center">
+      Escolha a opção que melhor se encaixa em seu perfil:
+    </p>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="buttons-container">
+      <ion-button class="button" expand="full" (click)="cadastrarOng()"
+        >ONG</ion-button
+      >
+      <ion-button class="button" expand="full" (click)="cadastrarVoluntario()"
+        >Voluntário</ion-button
+      >
+    </div>
+
+    <div class="login-option ion-text-center">
+      <p>Já é cadastrado?</p>
+      <a (click)="fazerLogin()">Faça login</a>
+    </div>
   </div>
+
+  <div class="trapezoid"></div>
 </ion-content>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pagina-anterior"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Perfil do Usuário
+    </ion-title>
+    <ion-buttons slot="end" *ngIf="!editMode">
+      <ion-button (click)="toggleEditMode()">
+        <ion-icon name="create"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="!editMode; else editForm">
+    <ion-item>
+      <ion-label>Nome:</ion-label>
+      <ion-note>{{ userDetails.Nome }}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-note>{{ userDetails.Email }}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>Papel:</ion-label>
+      <ion-note>{{ userDetails.Papel }}</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-item class="centered-icon"  (click)="confirmDelete()">
+    <ion-icon slot="start" name="trash"></ion-icon>
+  </ion-item>
+
+
+  <ng-template #editForm>
+    <ion-item>
+      <ion-label position="stacked">Nome:</ion-label>
+      <ion-input [(ngModel)]="editedProfile.nome" [value]="userDetails?.Nome" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email:</ion-label>
+      <ion-input [value]="userDetails?.Email" [(ngModel)]="editedProfile.email" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label position="stacked" >Tipo de Papel</ion-label>
+    <ion-select [(ngModel)]="editedProfile.Papel" placeholder="Selecione Papel">
+      <ion-select-option *ngFor="let papel of papeis" [value]="papel.id">
+        {{papel.Nome}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+    
+    <ion-button expand="full" color="success" (click)="saveChanges()">Salvar</ion-button>
+  </ng-template>
+</ion-content>
